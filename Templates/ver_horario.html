@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario de Clases</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="absolute inset-x-0 top-0 z-50">
+        <nav class="grid justify-items-end p-6">
+          <div>
+            <a href="/semestres"><img src="https://cdn.icon-icons.com/icons2/935/PNG/512/login-arrow-symbol-entering-back-into-a-square_icon-icons.com_73221.png" class="w-[5vh] h-[5vh]" alt="Volver al Inicio"></a>
+          </div>
+        </nav>
+      </header>
+    <div class="container p-5 flex justify-center items-center flex-col min-h-screen">
+        <img src="https://becas-mexico.mx/wp-content/uploads/2020/04/becas-mexico-2020-participa-en-talend-land.jpg" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+        <div class="overflow-x-auto">
+            <table class="table-fixed bg-white/30 shadow-md rounded-lg overflow-hidden">
+                <thead class="bg-rose-600/90 text-white">
+                    <tr class="text-center">
+                        <td colspan="5" class="px-6 py-4 border-b border-gray-200 font-bold">Horario</td>
+                    </tr>
+                    <tr class="border-b border-gray-200">
+                        <th class="px-6 py-3 text-center">Materia</th>
+                        <th class="px-6 py-3 text-center">Sección</th>
+                        <th class="px-6 py-3 text-center">Día</th>
+                        <th class="px-6 py-3 text-center">Turno</th>
+                        <th class="px-6 py-3 text-center">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for materia in materias %}
+                    <tr class="bg-white/30 text-center">
+                        <td class="px-4 py-4 border-b border-gray-200">{{ materia.materia }}</td>
+                        <td class="px-4 py-4 border-b border-gray-200">{{ materia.seccion }}</td>
+                        <td class="px-4 py-4 border-b border-gray-200">{{ materia.dia }}</td>
+                        <td class="px-4 py-4 border-b border-gray-200">{{ materia.turno }}</td>
+                        <td class="px-4 py-4 border-b border-gray-200">
+                            <div class="flex">
+                                <form action="{{ url_for('actualizar_horario', horario_id=materia.id) }}", method="get" class="mr-6">
+                                    <button type="submit"><img src="https://images.vexels.com/media/users/3/141104/isolated/preview/57003a56b5f8470651295adb4b7be139-actualizar-signo-de-flecha.png" alt="Actualizar" class="w-[4vh] h-[4vh]"></button>
+                                </form>
+                                <form action="/eliminar_horario" method="post">
+                                    <input type="hidden" name="horario_id" value="{{materia.id}}">
+                                    <button type="submit"><img src="https://cdn.icon-icons.com/icons2/1880/PNG/512/iconfinder-trash-4341321_120557.png" alt="Eliminar" class="w-[4vh] h-[4vh]"></button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    {% else %}
+                        <tr class="text-center bg-white">
+                            <td colspan="5" class="px-6 py-4 border-b border-gray-200">No hay materias registradas</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

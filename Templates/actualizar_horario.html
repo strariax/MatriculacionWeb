@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Modificar Horario</title>
+</head>
+<body class="bg-gray-900">
+    <header class="absolute inset-x-0 top-0 z-50">
+        <nav class="grid justify-items-end p-6">
+          <div>
+            <a href="/ver_horario"><img src="https://cdn.icon-icons.com/icons2/935/PNG/512/login-arrow-symbol-entering-back-into-a-square_icon-icons.com_73221.png" class="w-[5vh] h-[5vh]" alt="Volver al Inicio"></a>
+          </div>
+        </nav>
+      </header>
+    <form method="POST" class="min-h-screen flex items-center justify-center">
+        <div class="p-8 bg-white/30 rounded-lg shadow-md">
+            <img src="https://becas-mexico.mx/wp-content/uploads/2020/04/becas-mexico-2020-participa-en-talend-land.jpg" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+            <h1 class="text-2xl font-bold mb-6 text-center">Modificar Horario</h1>
+            <div class="mb-4">
+                <label for="materia" class="block text-gray-900 font-bold mb-2">Materia</label>
+                <select name="materia" id="materia" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <optgroup label="1er Semestre">
+                        <option value="Matematica 1" {% if horario_a_actualizar.materia == 'Matemática 1' %} selected {% endif %}>Matematica 1</option>
+                        <option value="Física 1" {% if horario_a_actualizar.materia == 'Física 1' %} selected {% endif %}>Fisica 1</option>
+                        <option value="Lenguaje 1" {% if horario_a_actualizar.materia == 'Lenguaje 1' %} selected {% endif %}>Lenguaje 1</option>
+                        <option value="Cálculo 1" {% if horario_a_actualizar.materia == 'Cálculo 1' %} selected {% endif %}>Calculo 1</option>
+                        <option value="Biología 1" {% if horario_a_actualizar.materia == 'Biología 1' %} selected {% endif %}>Biologia 1</option>
+                    </optgroup>
+                    <optgroup label="2do Semestre">
+                        <option value="Matemática 2" {% if horario_a_actualizar.materia == 'Matemática 2' %} selected {% endif %}>Matemática 2</option>
+                        <option value="Física 2" {% if horario_a_actualizar.materia == 'Física 2' %} selected {% endif %}>Física 2</option>
+                        <option value="Lenguaje 2" {% if horario_a_actualizar.materia == 'Lenguaje 2' %} selected {% endif %}>Lenguaje 2</option>
+                        <option value="Cálculo 2" {% if horario_a_actualizar.materia == 'Cálculo 2' %} selected {% endif %}>Cálculo 2</option>
+                        <option value="Biología 2" {% if horario_a_actualizar.materia == 'Biología 2' %} selected {% endif %}>Biología 2</option>
+                    </optgroup>
+                    <optgroup label="3er Semestre">
+                        <option value="Algorítmica" {% if horario_a_actualizar.materia == 'Algorítmica' %} selected {% endif %}>Algorítmica</option>
+                        <option value="Física 3" {% if horario_a_actualizar.materia == 'Física 3' %} selected {% endif %}>Física 3</option>
+                        <option value="Resistencia de Materiales" {% if horario_a_actualizar.materia == 'Resistencia de Materiales' %} selected {% endif %}>Resistencia de Materiales</option>
+                        <option value="Cálculo 3" {% if horario_a_actualizar.materia == 'Cálculo 3' %} selected {% endif %}>Cálculo 3</option>
+                        <option value="Anatomía" {% if horario_a_actualizar.materia == 'Anatomía' %} selected {% endif %}>Anatomía</option>
+                    </optgroup>
+                    <optgroup label="4to Semestre">
+                        <option value="Geometría Analítica" {% if horario_a_actualizar.materia == 'Geometría Analítica' %} selected {% endif %}>Geometría Analítica</option>
+                        <option value="Física 4" {% if horario_a_actualizar.materia == 'Física 4' %} selected {% endif %}>Física 4</option>
+                        <option value="Biología" {% if horario_a_actualizar.materia == 'Biología' %} selected {% endif %}>Biología</option>
+                        <option value="Cálculo 4" {% if horario_a_actualizar.materia == 'Cálculo 4' %} selected {% endif %}>Cálculo 4</option>
+                        <option value="Algorítmica" {% if horario_a_actualizar.materia == 'Algorítmica' %} selected {% endif %}>Algorítmica</option>
+                    </optgroup>
+                    <optgroup label="5to Semestre">
+                        <option value="Geometría Descriptiva" {% if horario_a_actualizar.materia == 'Geometría Descriptiva' %} selected {% endif %}>Geometría Descriptiva</option>
+                        <option value="Física 5" {% if horario_a_actualizar.materia == 'Física 5' %} selected {% endif %}>Física 5</option>
+                        <option value="Química" {% if horario_a_actualizar.materia == 'Química' %} selected {% endif %}>Química</option>
+                        <option value="Hidroestática" {% if horario_a_actualizar.materia == 'Hidroestática' %} selected {% endif %}>Hidroestática</option>
+                        <option value="Hidrodinámica" {% if horario_a_actualizar.materia == 'Hidrodinámica' %} selected {% endif %}>Hidrodinámica</option>
+                    </optgroup>
+                    <optgroup label="6to Semestre">
+                        <option value="Programación" {% if horario_a_actualizar.materia == 'Programación' %} selected {% endif %}>Programación</option>
+                        <option value="Finanzas" {% if horario_a_actualizar.materia == 'Finanzas' %} selected {% endif %}>Finanzas</option>
+                        <option value="Inglés" {% if horario_a_actualizar.materia == 'Inglés' %} selected {% endif %}>Inglés</option>
+                        <option value="Matemática Aplicada" {% if horario_a_actualizar.materia == 'Matemática Aplicada' %} selected {% endif %}>Matemática Aplicada</option>
+                        <option value="Hardware" {% if horario_a_actualizar.materia == 'Hardware' %} selected {% endif %}>Hardware</option>
+                    </optgroup>
+                </select>   
+            </div>
+            <div class="mb-4">
+                <label for="seccion" class="block text-gray-900 font-bold mb-2">Sección</label>
+                <select name="seccion" id="seccion" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Seleccione una sección...</option>
+                    <option value="A" {% if horario_a_actualizar.seccion == 'A' %} selected {% endif %}>A</option>
+                    <option value="B" {% if horario_a_actualizar.seccion == 'B' %} selected {% endif %}>B</option>
+                    <option value="C" {% if horario_a_actualizar.seccion == 'C' %} selected {% endif %}>C</option>
+                    <option value="D" {% if horario_a_actualizar.seccion == 'D' %} selected {% endif %}>D</option>
+                </select>   
+            </div>
+            <div class="mb-4">
+                <label for="dia" class="block text-gray-900 font-bold mb-2">Turno</label>
+                <select name="dia" id="dia" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Seleccione un turno...</option>
+                    <option value="Mañana" {% if horario_a_actualizar.dia == 'Mañana' %} selected {% endif %}>Mañana</option>
+                    <option value="Tarde" {% if horario_a_actualizar.dia == 'Tarde' %} selected {% endif %}>Tarde</option>
+                    <option value="Noche" {% if horario_a_actualizar.dia == 'Noche' %} selected {% endif %}>Noche</option>
+                </select>   
+            </div>
+            <div class="mb-4">
+                <label for="turno" class="block text-gray-900 font-bold mb-2">Dia</label>
+                <select name="turno" id="turno" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Seleccione un dia...</option>
+                    <option value="Lunes" {% if horario_a_actualizar.turno == 'Lunes' %} selected {% endif %}>Lunes</option>
+                    <option value="Martes" {% if horario_a_actualizar.turno == 'Martes' %} selected {% endif %}>Martes</option>
+                    <option value="Miercoles" {% if horario_a_actualizar.turno == 'Miercoles' %} selected {% endif %}>Miercoles</option>
+                    <option value="Jueves" {% if horario_a_actualizar.turno == 'Jueves' %} selected {% endif %}>Jueves</option>
+                    <option value="Viernes" {% if horario_a_actualizar.turno == 'Viernes' %} selected {% endif %}>Viernes</option>
+                </select>   
+            </div>
+            <div class="flex items-center mt-6">
+                <button type="submit" class="bg-rose-500 hover:bg-rose-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Aceptar</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Cuarto Semestre</title>
+</head>
+<body class="bg-gray-900">
+    <header class="absolute inset-x-0 top-0 z-50">
+        <nav class="grid justify-items-end p-6">
+          <div>
+            <a href="/semestres"><img src="https://cdn.icon-icons.com/icons2/935/PNG/512/login-arrow-symbol-entering-back-into-a-square_icon-icons.com_73221.png" class="w-[5vh] h-[5vh]" alt="Volver al Inicio"></a>
+          </div>
+        </nav>
+      </header>
+    <form action="/cuarto_semestre" method="POST" class="min-h-screen flex items-center justify-center">
+        <div class="p-8 bg-white/30 rounded-lg shadow-md">
+            <img src="https://becas-mexico.mx/wp-content/uploads/2020/04/becas-mexico-2020-participa-en-talend-land.jpg" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+            <h1 class="text-2xl font-bold mb-6 text-center">Cuarto Semestre</h1>
+            <div class="mb-4">
+                <label for="materia" class="block text-gray-900 font-bold mb-2">Materia</label>
+                <select name="materia" id="materia" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Seleccione una materia...</option>
+                    <option value="Geometría Analítica">Geometría Analítica</option>
+                    <option value="Física 4">Fisica 4</option>
+                    <option value="Biología">Biología 3</option>
+                    <option value="Cálculo 4">Cálculo 4</option>
+                    <option value="Algorítmica">Algorítmica</option>
+                </select>   
+            </div>
+            <div class="mb-4">
+                <label for="seccion" class="block text-gray-900 font-bold mb-2">Sección</label>
+                <select name="seccion" id="seccion" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Seleccione una sección...</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                   
+                </select>   
+            </div>
+            <div class="mb-4">
+                <label for="dia" class="block text-gray-900 font-bold mb-2">Turno</label>
+                <select name="dia" id="dia" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Seleccione un turno...</option>
+                    <option value="Mañana">Mañana</option>
+                    <option value="Tarde">Tarde</option>
+                    <option value="Noche">Noche</option>
+                </select>   
+            </div>
+            <div class="mb-4">
+                <label for="turno" class="block text-gray-900 font-bold mb-2">Dia</label>
+                <select name="turno" id="turno" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Seleccione un dia...</option>
+                    <option value="Lunes">Lunes</option>
+                    <option value="Martes">Martes</option>
+                    <option value="Miercoles">Miercoles</option>
+                    <option value="Jueves">Jueves</option>
+                    <option value="Viernes">Viernes</option>
+                    
+                </select>   
+               
+            </div>
+            <div class="flex items-center justify-between mt-6">
+                <button type="submit" class="bg-rose-500 mr-6 hover:bg-rose-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Registrar</button>
+                <button class="bg-gray-600 hover:bg-gray-700 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                  <a href="/ver_horario" class="text-white">Ver horario</a>
+                </button>
+              </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Iniciar Sesión</title>
+</head>
+<body class="bg-gray-900">
+    <header class="absolute inset-x-0 top-0 z-50">
+        <nav class="grid justify-items-end p-6">
+          <div>
+            <a href="/"><img src="https://cdn.icon-icons.com/icons2/935/PNG/512/login-arrow-symbol-entering-back-into-a-square_icon-icons.com_73221.png" class="w-[5vh] h-[5vh]" alt="Volver al Inicio"></a>
+          </div>
+        </nav>
+      </header>
+    <form action="/inicio_sesion" method="POST" class="min-h-screen flex items-center justify-center flex-col">
+        <div class="p-8 bg-white/30 rounded-lg shadow-md">
+            <img src="https://becas-mexico.mx/wp-content/uploads/2020/04/becas-mexico-2020-participa-en-talend-land.jpg" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+            <h1 class="text-2xl font-bold mb-6 text-center">Iniciar Sesión</h1>
+            <div class="mb-4">
+                <label for="nombre_alumno" class="block text-gray-900 font-bold mb-2">Nombre</label>
+                <input type="text" autocomplete="off" name="nombre_alumno" id="nombre_alumno" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="apellido_alumno" class="block text-gray-900 font-bold mb-2">Apellido</label>
+                <input type="text" autocomplete="off" name="apellido_alumno" id="apellido_alumno" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="cedula" class="block text-gray-900 font-bold mb-2">Cédula</label>
+                <input type="text" name="cedula" id="cedula" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="flex justify-center mt-6">
+                <button type="submit" class="bg-rose-500 hover:bg-rose-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Aceptar</button>
+            </div>
+        </div>
+    </div>
+    {% if mensaje_error %}
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-6" role="alert">
+        <span class="block sm:inline">{{ mensaje_error }}</span>
+    </div>
+    {% endif %}
+    </form>
+</body>
+</html>
